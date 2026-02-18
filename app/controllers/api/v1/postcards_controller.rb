@@ -2,8 +2,16 @@ class Api::V1::PostcardsController < ApplicationController
   before_action :set_postcard, only: %i[show destroy]
 
   def index
-    postcard = Postcard.all.order(created_at: :desc)
-    render json: postcard
+    postcards_per_page = 8
+    @postcards = Postcard.order(created_at: :desc)
+    paginated_postcards = paginate_postcards(@postcards, postcards_per_page)
+    total_postcards_count = @postcards.count
+
+    render json: {
+      postcards: paginated_postcards,
+      total_count: total_postcards_count,
+      per_page: postcards_per_page
+    }
   end
 
   def create

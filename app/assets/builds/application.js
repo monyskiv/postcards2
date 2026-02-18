@@ -1892,7 +1892,7 @@ var require_react_dom_development = __commonJS({
         return dispatcher;
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React20 = require_react(), Internals = {
+      var React21 = require_react(), Internals = {
         d: {
           f: noop2,
           r: function() {
@@ -1910,7 +1910,7 @@ var require_react_dom_development = __commonJS({
         },
         p: 0,
         findDOMNode: null
-      }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React20.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+      }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React21.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
       "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
         "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
       );
@@ -3452,7 +3452,7 @@ var require_react_dom_client_development = __commonJS({
         "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
       }
       function validateOptionProps(element, props) {
-        null == props.value && ("object" === typeof props.children && null !== props.children ? React20.Children.forEach(props.children, function(child) {
+        null == props.value && ("object" === typeof props.children && null !== props.children ? React21.Children.forEach(props.children, function(child) {
           null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
             "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
           ));
@@ -17034,14 +17034,14 @@ var require_react_dom_client_development = __commonJS({
         ));
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var Scheduler = require_scheduler(), React20 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
+      var Scheduler = require_scheduler(), React21 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_PROVIDER_TYPE = Symbol.for("react.provider"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
       Symbol.for("react.scope");
       var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
       Symbol.for("react.legacy_hidden");
       Symbol.for("react.tracing_marker");
       var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
       Symbol.for("react.view_transition");
-      var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React20.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+      var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React21.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
         pending: false,
         data: null,
         method: null,
@@ -19763,7 +19763,7 @@ var require_react_dom_client_development = __commonJS({
         }
       };
       (function() {
-        var isomorphicReactPackageVersion = React20.version;
+        var isomorphicReactPackageVersion = React21.version;
         if ("19.1.1" !== isomorphicReactPackageVersion)
           throw Error(
             'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.1.1\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -35083,6 +35083,29 @@ function shouldProcessLinkClick(event, target) {
   (!target || target === "_self") && // Let browser handle "target=_blank" etc.
   !isModifiedEvent(event);
 }
+function createSearchParams(init = "") {
+  return new URLSearchParams(
+    typeof init === "string" || Array.isArray(init) || init instanceof URLSearchParams ? init : Object.keys(init).reduce((memo2, key) => {
+      let value = init[key];
+      return memo2.concat(
+        Array.isArray(value) ? value.map((v) => [key, v]) : [[key, value]]
+      );
+    }, [])
+  );
+}
+function getSearchParamsForLocation(locationSearch, defaultSearchParams) {
+  let searchParams = createSearchParams(locationSearch);
+  if (defaultSearchParams) {
+    defaultSearchParams.forEach((_, key) => {
+      if (!searchParams.has(key)) {
+        defaultSearchParams.getAll(key).forEach((value) => {
+          searchParams.append(key, value);
+        });
+      }
+    });
+  }
+  return searchParams;
+}
 var _formDataSupportsSubmitter = null;
 function isFormDataSubmitterSupported() {
   if (_formDataSupportsSubmitter === null) {
@@ -35926,6 +35949,39 @@ function useLinkClickHandler(to, {
     ]
   );
 }
+function useSearchParams(defaultInit) {
+  warning(
+    typeof URLSearchParams !== "undefined",
+    `You cannot use the \`useSearchParams\` hook in a browser that does not support the URLSearchParams API. If you need to support Internet Explorer 11, we recommend you load a polyfill such as https://github.com/ungap/url-search-params.`
+  );
+  let defaultSearchParamsRef = React10.useRef(createSearchParams(defaultInit));
+  let hasSetSearchParamsRef = React10.useRef(false);
+  let location2 = useLocation();
+  let searchParams = React10.useMemo(
+    () => (
+      // Only merge in the defaults if we haven't yet called setSearchParams.
+      // Once we call that we want those to take precedence, otherwise you can't
+      // remove a param with setSearchParams({}) if it has an initial value
+      getSearchParamsForLocation(
+        location2.search,
+        hasSetSearchParamsRef.current ? null : defaultSearchParamsRef.current
+      )
+    ),
+    [location2.search]
+  );
+  let navigate = useNavigate();
+  let setSearchParams = React10.useCallback(
+    (nextInit, navigateOptions) => {
+      const newSearchParams = createSearchParams(
+        typeof nextInit === "function" ? nextInit(new URLSearchParams(searchParams)) : nextInit
+      );
+      hasSetSearchParamsRef.current = true;
+      navigate("?" + newSearchParams, navigateOptions);
+    },
+    [navigate, searchParams]
+  );
+  return [searchParams, setSearchParams];
+}
 var fetcherId = 0;
 var getUniqueFetcherId = () => `__${String(++fetcherId)}__`;
 function useSubmit() {
@@ -36193,9 +36249,9 @@ var SearchBar_default = SearchBar;
 var import_react3 = __toESM(require_react());
 
 // app/javascript/services/postcardService.js
-var fetchAllPostcards = async () => {
+var fetchAllPostcards = async (page = 1) => {
   try {
-    const url = "/api/v1/postcards/index";
+    const url = `/api/v1/postcards/index?page=${page}`;
     const response = await fetch(url);
     if (!response.ok) throw new Error(response.statusText);
     return await response.json();
@@ -36203,9 +36259,9 @@ var fetchAllPostcards = async () => {
     console.error("Fetch All failed:", error2);
   }
 };
-var searchPostcards = async (query) => {
+var searchPostcards = async (query, page = 1) => {
   try {
-    const url = `/api/v1/search/postcards/?q=${encodeURIComponent(query)}`;
+    const url = `/api/v1/search/postcards/?q=${query}&page=${page}`;
     const response = await fetch(url);
     if (!response.ok) throw new Error(response.statusText);
     return await response.json();
@@ -36215,70 +36271,180 @@ var searchPostcards = async (query) => {
 };
 
 // app/javascript/hooks/usePostcardsData.jsx
-function usePostcardsData(searchTerm) {
+function usePostcardsData(searchTerm, page = 1) {
   const navigate = useNavigate();
   const [postcards, setPostcards] = (0, import_react3.useState)([]);
   const [loading, setLoading] = (0, import_react3.useState)(true);
   const [error2, setError] = (0, import_react3.useState)(null);
+  const [totalPostcards, setTotalPostcards] = (0, import_react3.useState)(0);
+  const [perPage, setPerPage] = (0, import_react3.useState)(10);
   (0, import_react3.useEffect)(() => {
     async function loadPostcards() {
       try {
         let data2;
         if (searchTerm) {
-          data2 = await searchPostcards(searchTerm);
+          data2 = await searchPostcards(searchTerm, page);
         } else {
-          data2 = await fetchAllPostcards();
+          data2 = await fetchAllPostcards(page);
         }
-        setPostcards(data2);
+        if (data2.postcards) {
+          setPostcards(data2.postcards);
+          setTotalPostcards(data2.total_count);
+          setPerPage(data2.per_page);
+        }
         setLoading(false);
       } catch (e) {
         setError(e);
         setLoading(false);
-        console.error("Failed to fetch posts: ", e);
+        console.error("Failed to fetch postcards: ", e);
         navigate("/");
       }
     }
     loadPostcards();
-  }, [searchTerm]);
-  return { postcards, loading, error: error2 };
+  }, [searchTerm, page]);
+  return { postcards, loading, error: error2, totalPostcards, perPage };
 }
 var usePostcardsData_default = usePostcardsData;
 
 // app/javascript/hooks/useURLSearchParam.jsx
-var import_react4 = __toESM(require_react());
 function useURLSearchParam(paramName, initialValue = "") {
-  const query = new URLSearchParams(window.location.search);
-  const [paramValue, setParamValue] = (0, import_react4.useState)(
-    query.get(paramName) || initialValue
-  );
-  (0, import_react4.useEffect)(() => {
-    const newURL = paramValue ? `${window.location.pathname}?=${paramValue}` : window.location.pathname;
-    window.history.pushState({}, "", newURL);
-  }, [paramValue, paramName]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const paramValue = searchParams.get(paramName) || initialValue;
+  const setParamValue = (value) => {
+    if (value) {
+      setSearchParams({ ...Object.fromEntries(searchParams), [paramName]: value });
+    } else {
+      searchParams.delete(paramName);
+      setSearchParams(searchParams);
+    }
+  };
   return [paramValue, setParamValue];
 }
 var useURLSearchParam_default = useURLSearchParam;
 
+// app/javascript/components/Pagination.jsx
+var import_react4 = __toESM(require_react());
+var import_prop_types2 = __toESM(require_prop_types());
+function Pagination({
+  currentPage,
+  totalPostcards,
+  postcardsPerPage,
+  onPageChange
+}) {
+  const totalPages = Math.ceil(totalPostcards / postcardsPerPage);
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      onPageChange(currentPage - 1);
+    }
+  };
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      onPageChange(currentPage + 1);
+    }
+  };
+  const getVisiblePageNumbers = () => {
+    if (totalPages <= 10) {
+      return createRange(1, totalPages);
+    }
+    if (currentPage <= 6) {
+      const lastPageBeforeEllipsis = 8;
+      return [...createRange(1, lastPageBeforeEllipsis), "...", totalPages];
+    }
+    if (currentPage >= totalPages - 5) {
+      return [1, "...", ...createRange(totalPages - 8, totalPages)];
+    }
+    return [1, "...", ...createMiddlePages(), "...", totalPages];
+  };
+  const createMiddlePages = () => {
+    const middlePagesStart = Math.max(2, currentPage - 3);
+    const middlePagesEnd = Math.min(currentPage + 3, totalPages - 1);
+    return createRange(middlePagesStart, middlePagesEnd);
+  };
+  const createRange = (start3, end2) => {
+    return Array.from({ length: end2 - start3 + 1 }, (_, i) => i + start3);
+  };
+  return /* @__PURE__ */ import_react4.default.createElement("div", null, /* @__PURE__ */ import_react4.default.createElement("button", { onClick: handlePrevious, disabled: currentPage === 1 }, "Previous"), getVisiblePageNumbers().map(
+    (page, index) => typeof page === "number" ? /* @__PURE__ */ import_react4.default.createElement(
+      "button",
+      {
+        key: page,
+        onClick: () => onPageChange(page),
+        disabled: currentPage === page
+      },
+      page
+    ) : /* @__PURE__ */ import_react4.default.createElement("span", { key: `ellipses-${index}`, style: { margin: "0 5px" } }, page)
+  ), /* @__PURE__ */ import_react4.default.createElement(
+    "button",
+    {
+      onClick: handleNext,
+      disabled: currentPage === totalPages || totalPages === 0
+    },
+    "Next"
+  ));
+}
+Pagination.propTypes = {
+  currentPage: import_prop_types2.default.number.isRequired,
+  totalPostcards: import_prop_types2.default.number.isRequired,
+  postcardsPerPage: import_prop_types2.default.number.isRequired,
+  onPageChange: import_prop_types2.default.func.isRequired
+};
+var Pagination_default = Pagination;
+
 // app/javascript/components/Postcards.jsx
 var Postcards = () => {
-  const [postcards, setPostcards] = (0, import_react5.useState)([]);
   const [searchTerm, setSearchTerm] = (0, import_react5.useState)("");
-  const [debounceSearchTerm, setDebouncedSearchTerm] = useURLSearchParam_default("search");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useURLSearchParam_default("search");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialPageFromURL = Number(searchParams.get("page") || "1");
+  const [currentPage, setCurrentPage] = (0, import_react5.useState)(initialPageFromURL);
+  const [postcards, setPostcards] = (0, import_react5.useState)([]);
   const {
     postcards: fetchedPostcards,
+    totalPostcards,
     loading,
-    error: error2
-  } = usePostcardsData_default(debounceSearchTerm);
+    error: error2,
+    perPage
+  } = usePostcardsData_default(debouncedSearchTerm, currentPage);
   (0, import_react5.useEffect)(() => {
-    if (fetchedPostcards) {
-      setPostcards(fetchedPostcards);
+    try {
+      if (fetchedPostcards) {
+        setPostcards(fetchedPostcards);
+      }
+    } catch (error3) {
+      console.error(error3);
     }
   }, [fetchedPostcards]);
+  (0, import_react5.useEffect)(() => {
+    try {
+      const initialSearchTerm = searchParams.get("search") || "";
+      setSearchTerm(initialSearchTerm);
+      const pageFromURL = searchParams.get("page") || "1";
+      setCurrentPage(Number(pageFromURL));
+    } catch (error3) {
+      console.error(error3);
+    }
+  }, [searchParams]);
   const handleImmediateSearchChange = (searchValue) => {
-    setSearchTerm(searchValue);
+    try {
+      setSearchTerm(searchValue);
+    } catch (error3) {
+      console.error(error3);
+    }
   };
   const handleDebouncedSearchChange = (searchValue) => {
-    setDebouncedSearchTerm(searchValue);
+    try {
+      setDebouncedSearchTerm(searchValue);
+    } catch (error3) {
+      console.error(error3);
+    }
+  };
+  const handlePageChange = (page) => {
+    try {
+      setCurrentPage(page);
+      setSearchParams({ search: debouncedSearchTerm, page });
+    } catch (error3) {
+      console.error(error3);
+    }
   };
   const allPostcards = postcards.map((postcard, index) => /* @__PURE__ */ import_react5.default.createElement("div", { key: index, className: "col-md-6 col-lg-4" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "card mb-4" }, /* @__PURE__ */ import_react5.default.createElement(
     "img",
@@ -36295,6 +36461,14 @@ var Postcards = () => {
       value: searchTerm,
       onSearchChange: handleDebouncedSearchChange,
       onImmediateChange: handleImmediateSearchChange
+    }
+  ), /* @__PURE__ */ import_react5.default.createElement(
+    Pagination_default,
+    {
+      currentPage,
+      totalPostcards,
+      postcardsPerPage: perPage,
+      onPageChange: handlePageChange
     }
   ), /* @__PURE__ */ import_react5.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react5.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react5.default.createElement(Link, { to: "/new_postcard", className: "btn custom-button" }, "Create New Postcard")), loading && /* @__PURE__ */ import_react5.default.createElement("p", null, "Loading..."), error2 && /* @__PURE__ */ import_react5.default.createElement("p", null, "Error loading postcards."), /* @__PURE__ */ import_react5.default.createElement("div", { className: "row" }, postcards.length > 0 ? allPostcards : noPostcard), /* @__PURE__ */ import_react5.default.createElement(Link, { to: "/", className: "btn btn-link" }, "Home"))));
 };
