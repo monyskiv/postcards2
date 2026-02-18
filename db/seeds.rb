@@ -1,4 +1,8 @@
-9.times do |i|
+## Destroy all postcards
+Postcard.destroy_all
+
+## Add 100 postcards
+100.times do |i|
   Postcard.create(
     title: "Postcard #{i + 1}",
     author: "Taras Shevchenko",

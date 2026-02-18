@@ -1,6 +1,6 @@
-export const fetchAllPostcards = async () => {
+export const fetchAllPostcards = async (page = 1) => {
   try {
-    const url = "/api/v1/postcards/index";
+    const url = `/api/v1/postcards/index?page=${page}`;
     const response = await fetch(url);
     if (!response.ok) throw new Error(response.statusText);
     return await response.json();
@@ -20,9 +20,9 @@ export const fetchPostcard = async (id) => {
   }
 };
 
-export const searchPostcards = async (query) => {
+export const searchPostcards = async (query, page = 1) => {
   try {
-    const url = `/api/v1/search/postcards/?q=${encodeURIComponent(query)}`;
+    const url = `/api/v1/search/postcards/?q=${query}&page=${page}`;
     const response = await fetch(url);
     if (!response.ok) throw new Error(response.statusText);
     return await response.json();
